@@ -64,7 +64,7 @@
     </th>
   </tr>
 
-  <% @course.each do |course| %>
+  <% @courses.each do |course| %>
     <tr>
       <td>
         <%= course.id %>
@@ -79,7 +79,7 @@
       </td>
 
       <td>
-        <% department = department.where({ :id => course.department_id }).at(0) %>
+        <% department = department.where({ :id => course.id }).at(0) %>
         <a href="/departments/<%= department.id %>"><%= department.name %></a>
       </td>
 
