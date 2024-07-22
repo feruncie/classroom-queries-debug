@@ -79,12 +79,16 @@
       </td>
 
       <td>
-        <% department = department.where({ :id => course.id }).at(0) %>
-        <a href="/departments/<%= department.id %>"><%= department.name %></a>
+        <% department = Department.where({ :id => course.id }).at(0) %>
+        <% if department %>
+        <a href="/departments/<%= @department.id %>"><%= department.name %></a>
+        <% else %>
+          No department found 
+        <% end%>
       </td>
 
       <td>
-        <a href="/courses/<%= @course.id %>">
+        <a href="/courses/<%= course.id %>">
           Show details
         </a>
       </td>
